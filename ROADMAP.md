@@ -1,31 +1,39 @@
 # Roadmap
 
-## Phase 0: Foundation
-- finalize architecture
-- define plugin contract
-- define event schema
-- define Claw integration contract
-- create standalone repo structure
+## Phase 0: Product clarity and documentation
+- unify product thesis around ActivityWatch-first MVP
+- finalize architecture layers
+- finalize Claw integration contract
+- finalize event schema
+- finalize plugin direction as future-facing, not MVP-blocking
 
-## Phase 1: ActivityWatch MVP
-- install and run ActivityWatch
-- inspect buckets/API
-- ingest app/window/browser events
-- normalize into shared schema
-- produce simple daily summary
+## Phase 1: ActivityWatch ingestion MVP
+- connect to local ActivityWatch API
+- discover buckets
+- ingest `currentwindow` events
+- ingest `afkstatus` events
+- maintain checkpoints per bucket
+- normalize raw events into Claw Observer schema
 
-## Phase 2: Plugin Platform
+## Phase 2: State and trigger loop
+- maintain current state and recent timeline
+- detect transitions, sustained focus, and context switching
+- implement conservative trigger scoring
+- decide between silence, message, and memory update
+
+## Phase 3: Claw integration and memory policy
+- define Claw-facing summaries
+- define short-term vs long-term memory rules
+- define web-lookup behavior for unknown tools/topics
+- make the system usable by an external Claw through docs/API
+
+## Phase 4: Browser enrichment
+- validate `aw-watcher-web`
+- add browser title/URL/domain support
+- refine category inference and topic tracking
+
+## Phase 5: Plugin platform and deeper collectors
 - plugin manifest loader
-- plugin discovery
-- plugin enable/disable states
+- enable/disable states
 - recommendation flow for specialized collectors
-
-## Phase 3: Deeper Collectors
-- YouTube collector
-- Discord voice metadata collector
-- project attribution collector
-
-## Phase 4: Proactive Intelligence
-- trigger engine
-- behavior pattern detection
-- Claw-facing summaries and proactive suggestions
+- future collectors such as YouTube, Discord, project attribution
